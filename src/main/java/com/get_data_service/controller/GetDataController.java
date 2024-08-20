@@ -26,10 +26,10 @@ public class GetDataController {
             return ResponseEntity.badRequest().body(ResponseMessage.builder().message("Invalid request").status(400).build());
         }
 
+        // Convert type to uppercase
+        if (type.equals("video")) type = "VOD";
+
         List<Media> data = getDataService.getData(type, requestParams.getList(), requestParams.getZoneId(), requestParams.getContentFilter(), requestParams.getLimit(), requestParams.getOffset());
-        if (data != null) {
-            return ResponseEntity.ok(ResponseMessage.builder().message("Success").status(200).data(data).build());
-        }
-        return ResponseEntity.badRequest().body(ResponseMessage.builder().message("Not Found").status(404).build());
+        return ResponseEntity.ok(ResponseMessage.builder().message("Success").status(200).data(data).build());
     }
 }
