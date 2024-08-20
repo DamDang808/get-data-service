@@ -35,5 +35,4 @@ public class Media implements Serializable {
     private int priority;
     private int position;
     private String hashTag;
-    private String source;
 }

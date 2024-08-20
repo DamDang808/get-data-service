@@ -12,5 +12,5 @@ import java.util.List;
 public class ResponseMessage {
     private String message;
     private int status;
-    private List<Media> data;
+    private List<MediaDTO> data;
 }

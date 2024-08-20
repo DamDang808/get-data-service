@@ -1,6 +1,6 @@
 package com.get_data_service.controller;
 
-import com.get_data_service.model.Media;
+import com.get_data_service.model.MediaDTO;
 import com.get_data_service.model.RequestParams;
 import com.get_data_service.model.ResponseMessage;
 import com.get_data_service.service.GetDataService;
@@ -29,7 +29,7 @@ public class GetDataController {
         // Convert type to uppercase
         if (type.equals("video")) type = "VOD";
 
-        List<Media> data = getDataService.getData(type, requestParams.getList(), requestParams.getZoneId(), requestParams.getContentFilter(), requestParams.getLimit(), requestParams.getOffset());
+        List<MediaDTO> data = getDataService.getData(type, requestParams.getList(), requestParams.getZoneId(), requestParams.getContentFilter(), requestParams.getLimit(), requestParams.getOffset());
         return ResponseEntity.ok(ResponseMessage.builder().message("Success").status(200).data(data).build());
     }
 }
